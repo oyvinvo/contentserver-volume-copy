@@ -10,4 +10,4 @@ Script that migrates the docker volumes of the Documentum Content Server to a ne
 
 
 ## Usage
-./copy-content-server-volumes.sh username@source-server username@target-server 
+./copy-content-server-volumes.sh username@source-server username@target-server name-of-the-dctm-repo
