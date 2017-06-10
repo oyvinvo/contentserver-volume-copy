@@ -1,5 +1,5 @@
 # Migration of the docker volumes of the Content Server to a new host
-This script assumes that the offical Documentum docker images is used, or atleast the naming of the volumes are the same as the officla image names them.
+This script assumes that the offical Documentum docker images is used, or atleast the naming of the volumes are the same as the official image names them.
 
 ## Requirements
 - The users of the source and target servers are members of the docker group.
