@@ -65,7 +65,7 @@ EOF
 
 # clean up local, source and target backups.
 rm -rf ./$UUID
-ssh $1 rm -rf ~/$UUID
-ssh $2 rm -rf ~/$UUID
+ssh $1 rm -rf ./$UUID
+ssh $2 rm -rf ./$UUID
 
 echo "phew, I managed to migrate the volmes from ${1} to ${2}. Please verify that everything is a okay before you do something you regret."
