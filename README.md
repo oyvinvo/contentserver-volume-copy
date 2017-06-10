@@ -2,8 +2,8 @@
 This script assumes that the offical Documentum docker images is used, or atleast the naming of the volumes are the same as the officla image names them.
 
 ## Requirements
-- The users of the source and target servers need to members of docker.
-- rsync must be installed on the the computer running the script.
+- The users of the source and target servers are members of the docker group.
+- rsync is installed on the the computer running the script.
 - Your public key is installed in the source and target server. [ssh-copy-id manual](https://linux.die.net/man/1/ssh-copy-id)
 
 ## Description
