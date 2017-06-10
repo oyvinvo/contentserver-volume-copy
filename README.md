@@ -15,5 +15,10 @@ The script does not delete the volumes or content server image/container on the 
 
 ## Usage
 ```
-./copy-content-server-volumes.sh username@source-server username@target-server name-of-the-dctm-repo
+./copy-content-server-volumes.sh username@source-server username@target-server container-name repo-name
 ```
+- username@source-server: username of a user who is member of the docker group, and name of the server running content server.
+- username@target-server: username of a user who is member of the docker group, and the name of the server you want to move the content server to.
+- container-name: the name of the docker container running content server today.
+- repo-name: The name of the documentum repository. The name is used in the docker volumes.
+
