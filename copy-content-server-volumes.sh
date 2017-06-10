@@ -33,34 +33,34 @@ rsync -r -P ./$UUID $2:./
 
 # create the empty volumes on the new host
 ssh $2 << EOF
-	docker volume create --name dctmcs_${REPO}_Thumbnail_Server_conf
-	docker volume create --name dctmcs_${REPO}_data
-	docker volume create --name dctmcs_${REPO}_share
-	docker volume create --name dctmcs_${REPO}_mdserver_logs
-	docker volume create --name dctmcs_${REPO}_odbc
-	docker volume create --name dctmcs_${REPO}_XhiveConnector
-	docker volume create --name dctmcs_${REPO}_mdserver_log
-	docker volume create --name dctmcs_${REPO}_dfc
-	docker volume create --name dctmcs_${REPO}_mdserver_conf
-	docker volume create --name dctmcs_${REPO}_Thumbnail_Server_webinf
-	docker volume create --name dctmcs_${REPO}_dba
-	docker volume create --name dctmcs_${REPO}_xhive_storage
+	docker volume create --name dctmcs_${3}_Thumbnail_Server_conf
+	docker volume create --name dctmcs_${3}_data
+	docker volume create --name dctmcs_${3}_share
+	docker volume create --name dctmcs_${3}_mdserver_logs
+	docker volume create --name dctmcs_${3}_odbc
+	docker volume create --name dctmcs_${3}_XhiveConnector
+	docker volume create --name dctmcs_${3}_mdserver_log
+	docker volume create --name dctmcs_${3}_dfc
+	docker volume create --name dctmcs_${3}_mdserver_conf
+	docker volume create --name dctmcs_${3}_Thumbnail_Server_webinf
+	docker volume create --name dctmcs_${3}_dba
+	docker volume create --name dctmcs_${3}_xhive_storage
 EOF
 
 # restore the backups into the newly created volumes on the new server.
 ssh $2 << EOF
-	docker run --rm -v dctmcs_${REPO}_Thumbnail_Server_conf:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/thumbsrv.tar.gz
-	docker run --rm -v dctmcs_${REPO}_data:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/data.tar.gz
-	docker run --rm -v dctmcs_${REPO}_share:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/share.tar.gz
-	docker run --rm -v dctmcs_${REPO}_mdserver_logs:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/mdserverlogs.tar.gz
-	docker run --rm -v dctmcs_${REPO}_odbc:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/obdc.tar.gz
-	docker run --rm -v dctmcs_${REPO}_XhiveConnector:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/xhiveconnector.tar.gz
-	docker run --rm -v dctmcs_${REPO}_mdserver_log:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/mdserverlog.tar.gz
-	docker run --rm -v dctmcs_${REPO}_dfc:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/dfc.tar.gz
-	docker run --rm -v dctmcs_${REPO}_mdserver_conf:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/mdserverconf.tar.gz
-	docker run --rm -v dctmcs_${REPO}_Thumbnail_Server_webinf:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/thumbwebinf.tar.gz
-	docker run --rm -v dctmcs_${REPO}_dba:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/dba.tar.gz
-	docker run --rm -v dctmcs_${REPO}_xhive_storage:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/xhivestorage.tar.gz
+	docker run --rm -v dctmcs_${3}_Thumbnail_Server_conf:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/thumbsrv.tar.gz
+	docker run --rm -v dctmcs_${3}_data:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/data.tar.gz
+	docker run --rm -v dctmcs_${3}_share:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/share.tar.gz
+	docker run --rm -v dctmcs_${3}_mdserver_logs:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/mdserverlogs.tar.gz
+	docker run --rm -v dctmcs_${3}_odbc:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/obdc.tar.gz
+	docker run --rm -v dctmcs_${3}_XhiveConnector:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/xhiveconnector.tar.gz
+	docker run --rm -v dctmcs_${3}_mdserver_log:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/mdserverlog.tar.gz
+	docker run --rm -v dctmcs_${3}_dfc:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/dfc.tar.gz
+	docker run --rm -v dctmcs_${3}_mdserver_conf:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/mdserverconf.tar.gz
+	docker run --rm -v dctmcs_${3}_Thumbnail_Server_webinf:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/thumbwebinf.tar.gz
+	docker run --rm -v dctmcs_${3}_dba:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/dba.tar.gz
+	docker run --rm -v dctmcs_${3}_xhive_storage:/opt -v ~/$UUID:/backup debian:jessie tar zxvf /backup/xhivestorage.tar.gz
 EOF
 
 # clean up local, source and target backups.
