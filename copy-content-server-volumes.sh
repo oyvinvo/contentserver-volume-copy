@@ -9,8 +9,9 @@ fi
 # create uuid for tmp folder
 UUID=$(cat /proc/sys/kernel/random/uuid)
 
-# backup content server volumes
+# stop container and backup content server volumes
 ssh $1 << EOF
+	docker stop ${3}
 	mkdir $UUID
 	docker run --rm -v ~/$UUID:/backup --volumes-from ${3} debian:jessie tar -czvf /backup/thumbsrv.tar.gz /opt/dctm/product/7.3/thumbsrv/conf
 	docker run --rm -v ~/$UUID:/backup --volumes-from ${3} debian:jessie tar -czvf /backup/data.tar.gz /opt/dctm/data

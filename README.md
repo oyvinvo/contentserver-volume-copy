@@ -10,7 +10,7 @@ This script migrates the docker volumes of the Documentum Content Server to a ne
 - Your public key is installed in the source and target server. [ssh-copy-id manual](https://linux.die.net/man/1/ssh-copy-id)
 
 ## What this script does not do
-The script copies the docker volumes. Stopping the src content server and copying the image and starting it on the new server is not part of the script. Yet.
+The script stops the source Content Server docker container and copies the docker volumes. The Content Server image and compose file used must be copied manually. Modifications to the compose file are probably necessary. 
 The script does not delete the volumes or content server image/container on the source server.
 
 ## Usage
